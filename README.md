@@ -160,30 +160,18 @@ classDiagram
    - **Acceptance Criteria:** The system must validate the ticket details against the actual shipment before confirmation.
 
 2. **As a Warehouse Staff**,  
-   I want to check if there is enough capacity in the warehouse before accepting a shipment, so that I can prevent overstocking and ensure safe storage.  
-   - **Acceptance Criteria:** The system must check storage capacity before accepting a shipment.
-
-3. **As a Warehouse Staff**,  
    I want the system to mark the job as ‘confirmed’ after the chemicals are stored, so that I can track completed shipments.  
    - **Acceptance Criteria:** The system must automatically mark the job as 'confirmed' after the shipment is stored.
 
-4. **As a Warehouse Staff**,  
-   I want to verify if the requested stock is available for dispatch, so that I can ensure the lorry is loaded accurately.  
-   - **Acceptance Criteria:** The system must check stock availability before allowing a shipment to be dispatched.
-
-5. **As a Warehouse Staff**,  
-   I want the system to mark the job as ‘confirmed’ once the shipment is loaded onto the lorry, so that I can keep track of successful dispatches.  
-   - **Acceptance Criteria:** The system must mark the job as 'confirmed' after the lorry is loaded.
-
-6. **As a Warehouse Manager**,  
+5. **As a Warehouse Manager**,  
    I want the system to ensure that chemicals from class A and B are stored separately, so that I can maintain safety compliance.  
    - **Acceptance Criteria:** The system must prevent scheduling shipments that store class A and B chemicals in the same warehouse.
 
-7. **As a Warehouse Manager**,  
+6. **As a Warehouse Manager**,  
    I want the system to prevent storing class A chemicals in adjacent warehouses, so that I can ensure compliance with legal fire hazard regulations.  
    - **Acceptance Criteria:** The system must ensure class A chemicals are not scheduled for storage in adjacent warehouses.
 
-8. **As a Compliance Team**,  
+7. **As a Compliance Team**,  
    I want the system to track the storage and movement of chemicals, so that I can generate audit reports for regulatory purposes.  
    - **Acceptance Criteria:** The system must generate audit reports with a detailed history of chemical storage and movements.
 
@@ -191,19 +179,19 @@ classDiagram
 
 ### Non-Functional Requirements:
 
-1. **As a System Administrator**,  
+1. **As the Chemical Hazard Team**,  
    I want the system to automatically notify the fire brigade if the storage of class A chemicals exceeds 15K units, so that the fire brigade can be placed on alert in case of emergency.  
    - **Acceptance Criteria:** The system must send an automatic alert to the fire brigade if class A chemical storage exceeds 15K units.
 
-2. **As a System Administrator**,  
+2. **As the Chemical Hazard Team**,  
    I want the system to automatically alert the fire brigade in the event of a spillage or fire, so that emergency services are notified in real-time.  
    - **Acceptance Criteria:** The system must automatically alert the fire brigade with real-time inventory data during spillage or fire events.
 
-3. **As a Compliance Team**,  
+3. **As the Compliance Team**,  
    I want the audit data to be resilient in case of a disaster, so that I can still access historical data after a catastrophic event.  
    - **Acceptance Criteria:** The system must ensure audit data is disaster-resilient and accessible even after catastrophic site incidents.
 
-4. **As a System Administrator**,  
+4. **As the System Administrator**,  
    I want the system to be able to communicate with external services like the fire department, so that external alerts and communications can happen seamlessly.  
    - **Acceptance Criteria:** The system must be able to integrate and communicate with external services such as the fire department.
 
