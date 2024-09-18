@@ -40,16 +40,7 @@
 
 ---
 
-## Domain Model (UML Class Diagram)
-
-### Classes:
-- **Chemicals**
-- **Warehouse**
-- **Shipment** (both for receiving and dispatching)
-- **Job**
-- **Ticket**
-- **Inventory**
-- **Fire Brigade**
+## Domain Model & Class Diagram (UML)
 
 ### Domain Model for Chemical Warehouse Shipment System:
 ```mermaid
@@ -62,7 +53,76 @@ classDiagram
     Compliance "1" -- "*" Warehouse
 ```
 
+### Classes:
+- **Chemicals**
+- **Warehouse**
+- **Shipment** (both for receiving and dispatching)
+- **Job**
+- **Ticket**
+- **Inventory**
+- **Fire Brigade**
 
+### Class Diagram:
+Class diagram for the chemical inventory system. The diagram shows the relationships between entities in the system.
+
+```mermaid
+classDiagram
+    class Chemicals {
+        +string id
+        +string name
+        +string class
+    }
+
+    class Warehouse {
+        +string id
+        +string location
+        +int capacity
+    }
+
+    class Inventory {
+        +string id
+        +string warehouse_id
+        +string chemical_id
+        +int quantity
+    }
+
+    class Job {
+        +string id
+        +string description
+        +string shipment_id
+    }
+
+    class Shipment {
+        <<icon: truck, color: red>>
+        +string id
+        +timestamp date
+        +string destination
+    }
+
+    class Ticket {
+        +string id
+        +string shipment_id
+        +string details
+    }
+
+    class Fire_Brigade {
+        +string id
+        +string contact_info
+    }
+
+    class Compliance {
+        +string id
+        +timestamp report_date
+        +string warehouse_id
+    }
+
+    Chemicals "1" -- "*" Inventory : contains
+    Warehouse "1" -- "*" Inventory : stores
+    Warehouse "1" -- "*" Compliance : reported_in
+    Job "1" -- "1" Shipment : triggers
+    Shipment "1" -- "1" Ticket : includes
+    Fire_Brigade "1" -- "*" Warehouse : monitors
+```
 
 ### Other Information:
 - Class A and B Chemicals cannot be stored in the same warehouse.
