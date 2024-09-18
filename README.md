@@ -68,50 +68,50 @@ Class diagram for the chemical inventory system. The diagram shows the relations
 ```mermaid
 classDiagram
     class Chemicals {
-        +string id
+        +string id  PK
         +string name
         +string class
     }
 
     class Warehouse {
-        +string id
+        +string id PK
         +string location
         +int capacity
     }
 
     class Inventory {
-        +string id
-        +string warehouse_id
-        +string chemical_id
+        +string id  PK
+        +string warehouse_id  FK
+        +string chemical_id FK
         +int quantity
     }
 
     class Job {
-        +string id
+        +string id  PK
         +string description
-        +string shipment_id
+        +string shipment_id FK
     }
 
     class Shipment {
-        +string id
+        +string id  PK
         +timestamp date
         +string destination
     }
 
     class Ticket {
-        +string id
-        +string shipment_id
+        +string id  PK
+        +string shipment_id FK
         +string details
     }
 
     class Fire_Brigade {
-        +string id
+        +string id PK
         +string contact_info
     }
 
     class Compliance_Team {
-        +string id
-        +timestamp report_date
+        +string id PK
+        +timestamp report_date FK
         +string warehouse_id
     }
 
