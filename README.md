@@ -129,22 +129,8 @@
 
 ## Use Case Diagram
 
-### Warehouse Staff
-- Accept Shipment
-- Check Capacity
-- Store Chemicals
-- Dispatch Chemicals
-
-### Compliance Team
-- Manage Compliance Rules
-
-### System
-- Trigger Fire Alert (up-to-date inventory)
-- Provide Audit Report
-- Manage Compliance Rules (may overlap with the Compliance Team)
-
-### Fire Brigade (external system interaction)
-- Trigger Fire Alert (System sends notifications to the fire brigade)
+![alt text](diagram-export-9-18-2024-12_17_06-PM.png "UseCase diagram")
+Refence from the file in system integration: [Chemical Warehouse Tutorial use case model.pdf](https://cphbusiness.mrooms.net/mod/folder/view.php?id=728940)
 
 ---
 
