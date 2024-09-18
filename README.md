@@ -51,74 +51,15 @@
 - **Inventory**
 - **Fire Brigade**
 
-### Relationships:
-- **Chemical ↔ Warehouse:**
-  - One-to-Many: One warehouse can store multiple chemicals, but a chemical must adhere to certain rules (e.g., Class A and B cannot be stored in the same warehouse, Class A cannot be stored in adjacent warehouses).
-  - **Multiplicity:**
-    - One warehouse holds zero or more chemicals.
-    - One chemical is stored in one or more warehouses.
+```mermaid
+Domain Model of Chemical Warehouse Shipment Systemt
+    Chemicals "0..*" -- "0..*" Warehouse
+    Warehouse "1" -- "1" Inventory
+    Job "1" -- "0..*" Shipment
+    Fire_Brigade "1" -- "0..*" Warehouse
+    Compliance "1" -- "0..*" Warehouse
 
-- **Job ↔ Shipment:**
-  - One-to-One or One-to-Many: A job is linked to a shipment. There could be a single job to handle one shipment or multiple jobs depending on the warehouse's processes (e.g., receiving, storing, dispatching).
-  - **Multiplicity:**
-    - One job is linked to one shipment (for specific processes).
-    - One shipment is linked to one or more jobs (if the process involves multiple steps).
 
-- **Shipment ↔ Ticket:**
-  - One-to-One: A shipment has a single associated ticket that contains the shipment details (both for receiving and dispatching).
-  - **Multiplicity:**
-    - One shipment has exactly one ticket.
-    - One ticket corresponds to exactly one shipment.
-
-- **Warehouse ↔ Inventory:**
-  - One-to-One: Each warehouse tracks its own inventory of chemicals. The inventory details which chemicals are stored, their quantities, and their location.
-  - **Multiplicity:**
-    - One warehouse has exactly one inventory.
-    - One inventory is tied to exactly one warehouse.
-
-- **Chemical ↔ Inventory:**
-  - Many-to-Many: Multiple chemicals are tracked by an inventory, and an inventory may track multiple chemicals.
-  - **Multiplicity:**
-    - One chemical is tracked by one or more inventories.
-    - One inventory tracks zero or more chemicals.
-
-- **Fire Brigade ↔ Warehouse (External communication):**
-  - One-to-Many: The system must notify the fire brigade if hazardous conditions are met, such as exceeding storage limits for Class A chemicals.
-  - **Multiplicity:**
-    - One fire brigade interacts with zero or more warehouses (via alerts).
-    - One warehouse may trigger alerts to the fire brigade when certain conditions are met.
-
-- **Compliance ↔ Warehouse/Inventory:**
-  - One-to-Many: The compliance team generates audit reports based on warehouse or inventory data. The reports track the history of chemical movements.
-  - **Multiplicity:**
-    - One compliance team generates reports based on one or more warehouses/inventories.
-    - One warehouse/inventory provides data to one or more compliance reports.
-
-### With Multiplicities:
-- **Chemical**
-  - Stored in Warehouse (1-to-many)
-  - Tracked by Inventory (many-to-many)
-  
-- **Warehouse**
-  - Stores many Chemicals (1-to-many)
-  - Has an Inventory (1-to-1)
-  
-- **Inventory**
-  - Tracks many Chemicals (many-to-many)
-  - Linked to a Warehouse (1-to-1)
-  
-- **Job**
-  - Linked to a Shipment (1-to-1 or 1-to-many)
-  
-- **Shipment**
-  - Has a Ticket (1-to-1)
-  - Linked to a Job (1-to-1 or 1-to-many)
-  
-- **Fire Brigade**
-  - Interacts with Warehouse for fire alerts (1-to-many, external)
-  
-- **Compliance**
-  - Generates audit reports from Warehouse/Inventory (1-to-many)
 
 ### Other Information:
 - Class A and B Chemicals cannot be stored in the same warehouse.
