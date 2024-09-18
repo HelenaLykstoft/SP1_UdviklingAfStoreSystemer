@@ -54,11 +54,12 @@
 ### Domain Model for Chemical Warehouse Shipment System:
 ```mermaid
 classDiagram
-    Chemicals "0..*" -- "0..*" Warehouse
+    Chemicals "*" -- "*" Inventory
     Warehouse "1" -- "1" Inventory
-    Job "1" -- "0..*" Shipment
-    Fire_Brigade "1" -- "0..*" Warehouse
-    Compliance "1" -- "0..*" Warehouse
+    Job "1" -- "*" Shipment
+    Shipment "1" -- "1" Ticket
+    Fire_Brigade "1" -- "*" Warehouse
+    Compliance "1" -- "*" Warehouse
 ```
 
 
