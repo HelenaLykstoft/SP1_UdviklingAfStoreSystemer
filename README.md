@@ -51,8 +51,9 @@
 - **Inventory**
 - **Fire Brigade**
 
+### Domain Model for Chemical Warehouse Shipment System:
 ```mermaid
-Domain Model of Chemical Warehouse Shipment Systemt
+classDiagram
     Chemicals "0..*" -- "0..*" Warehouse
     Warehouse "1" -- "1" Inventory
     Job "1" -- "0..*" Shipment
