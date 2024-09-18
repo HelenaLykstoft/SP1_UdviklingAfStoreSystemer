@@ -59,6 +59,7 @@ classDiagram
     Job "1" -- "0..*" Shipment
     Fire_Brigade "1" -- "0..*" Warehouse
     Compliance "1" -- "0..*" Warehouse
+```
 
 
 
