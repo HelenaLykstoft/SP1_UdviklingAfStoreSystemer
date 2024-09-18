@@ -50,7 +50,7 @@ classDiagram
     Job "1" -- "*" Shipment
     Shipment "1" -- "1" Ticket
     Fire_Brigade "1" -- "*" Warehouse
-    Compliance "1" -- "*" Warehouse
+    Compliance_Team "1" -- "*" Warehouse
 ```
 
 ### Classes:
@@ -93,7 +93,6 @@ classDiagram
     }
 
     class Shipment {
-        <<icon: truck, color: red>>
         +string id
         +timestamp date
         +string destination
@@ -110,18 +109,18 @@ classDiagram
         +string contact_info
     }
 
-    class Compliance {
+    class Compliance_Team {
         +string id
         +timestamp report_date
         +string warehouse_id
     }
 
-    Chemicals "1" -- "*" Inventory : contains
-    Warehouse "1" -- "*" Inventory : stores
-    Warehouse "1" -- "*" Compliance : reported_in
-    Job "1" -- "1" Shipment : triggers
+    Chemicals "*" -- "*" Inventory : contains
+    Warehouse "1" -- "1" Inventory : monitors
+    Compliance_Team "1" -- "*" Warehouse : audits
+    Job "1" -- "*" Shipment : triggers
     Shipment "1" -- "1" Ticket : includes
-    Fire_Brigade "1" -- "*" Warehouse : monitors
+    Fire_Brigade "1" -- "*" Warehouse : observes
 ```
 
 ### Other Information:
